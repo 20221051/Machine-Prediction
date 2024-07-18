@@ -22,4 +22,4 @@
 
 # Results
 <img src='./images/Results.png' width="400" height="200"/> <br/>
-<img src='./images/RandomForest_imporance.png' width="400" height="180"/> <img src='./images/XGBoost_importance.png' width="400" height="200"/>
+<img src='./images/RandomForest_imporance.png' width="400" height="250"/> <img src='./images/XGBoost_importance.png' width="400" height="250"/>
