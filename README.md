@@ -22,4 +22,8 @@
 
 # Results
 <img src='./images/Results.png' width="400" height="200"/> <br/>
-<img src='./images/RandomForest_imporance.png' width="400" height="250"/> <img src='./images/XGBoost_importance.png' width="400" height="250"/>
+<img src='./images/RandomForest_imporance.png' width="400" height="250"/> <img src='./images/XGBoost_importance.png' width="400" height="250"/> <br/>
+결과를 살펴보면 Feature 중요도와 성능이 좋은 RandomForest의 결과가 가장 좋은 것으로 보인다.<br/>
+다만, RandomForest와 XGBoost의 Feature 중요도 결과가 다르기 때문에 이 부분을 확인해볼 필요성이 있다.<br/>
+DL 모델의 경우, PCA와 같은 embedding을 거친 후 예측 모델에 대입해보는 과정을 추가적으로 진행해볼 수 있다.<br/>
+또한 조금 더 복잡한 모델을 시도해볼 수 있다.<br/>
