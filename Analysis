@@ -1,0 +1,45 @@
+data.isna().sum()
+
+결측치가 없는 것을 확인
+
+data_x = data.iloc[:,:-1]
+data_y = data.iloc[:,-1]
+
+data_x.shape
+
+data_x.describe()
+
+footfall의 경우 std가 너무 크기 때문에 데이터 분포를 확인해본다
+
+plt.hist(data_x['footfall'], bins=10, color='blue', alpha=0.7)
+plt.title('footfall Distribution')
+plt.xlabel('footfall')
+plt.ylabel('Frequency')
+plt.show()
+
+특정 데이터만 과도하게 큰 이상치가 존재하기 때문에 제거 유무를 판별해본다
+
+data[data['footfall']>=6000]
+
+이상치로서 존재하는 데이터의 경우 예측하고자 하는 fail과 관련이 커보이지 않기 때문에  
+우선 제거하지 않고 진행한 후 결과에 너무 큰 영향을 미칠 경우 추후 제거하고 예측을 진행한다.
+
+cor_mat = data_x.corr()
+plt.figure(figsize=(10, 8))
+sns.heatmap(cor_mat, annot=True, cmap='coolwarm', linewidths=.5)
+plt.title('Correlation Matrix of data')
+plt.show()
+
+Feature간의 상관성을 확인해본 결과 AQ 와 voc의 상관성이 0.62로서 높았고  
+다른 feature들 간의 연관성은 크게 확인되지 않는다.  
+따라서 예측력이 떨어질 경우 VOC와 AQ 중 하나를 제거한 채 진행해 본다.  
+AQ : 기계 주변의 대기 질 지수.  
+VOC : 기계 주변의 유기 화합물 수준.
+
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+# 데이터 표준화
+standardized_data_x = scaler.fit_transform(data_x)
+data_s_x = pd.DataFrame(standardized_data_x, columns = data_x.columns)
+
+X_train, X_test, y_train, y_test = train_test_split(data_s_x, data_y, test_size=0.2, random_state=0)
