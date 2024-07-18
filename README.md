@@ -21,4 +21,5 @@
 [https://www.kaggle.com/datasets/umerrtx/machine-failure-prediction-using-sensor-data]<br/>
 
 # Results
-<img src='./images/Results.png' width="400" height="200"/>
+<img src='./images/Results.png' width="400" height="200"/> <br/>
+<img src='./images/RandomForest_importance.png' width="400" height="200"/> <img src='./images/XGBoost_importance.png' width="400" height="200"/>
